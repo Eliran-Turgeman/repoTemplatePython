@@ -23,9 +23,17 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    YOUR_DEPENDENCIES
+    "requests" # list your dependencies here
 ]
 dynamic = ["version"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "coverage[toml]",
+    "mypy",
+    "ruff",
+]
 
 [tool.mypy]
 strict = true
