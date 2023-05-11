@@ -42,7 +42,7 @@ show_error_codes = true
 [tool.coverage.run]
 parallel = true
 source = [
-    "YOUR_PROJECT_NAME
+    "YOUR_PROJECT_NAME"
 ]
 
 [tool.ruff]
