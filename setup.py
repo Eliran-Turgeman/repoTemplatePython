@@ -7,18 +7,18 @@ this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
-spec = util.spec_from_file_location(
-    "YOUR_PACKAGE_NAME.__version__", os.path.join("YOUR_PACKAGE_NAME", "__init__.py")
-)
-mod = util.module_from_spec(spec)  # type: ignore[arg-type]
-spec.loader.exec_module(mod)  # type: ignore[union-attr]
-version = mod.version
+# spec = util.spec_from_file_location(
+#     "YOUR_PACKAGE_NAME.__version__", os.path.join("YOUR_PACKAGE_NAME", "__init__.py")
+# )
+# mod = util.module_from_spec(spec)  # type: ignore[arg-type]
+# spec.loader.exec_module(mod)  # type: ignore[union-attr]
+# version = mod.version
 
 
 setup(
     name='YOUR_PACKAGE_NAME',
     license="MIT License",
-    version=version,
+    version='0.0.0',
     author='AUTHOR_NAME',
     author_email='AUTHOR_EMAIL',
     description='SHORT_DESCRIPTION',
