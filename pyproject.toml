@@ -16,9 +16,7 @@ ignore_missing_imports = true
 
 [tool.coverage.run]
 parallel = true
-source = [
-    "YOUR_PROJECT_NAME"
-]
+source = ["YOUR_PROJECT_NAME"]
 
 [tool.ruff]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
