@@ -1,12 +1,3 @@
-[tool.bumpversion]
-current_version = "0.0.0"
-commit = true
-tag = true
-
-[tool.bumpversion:file:setup.py]
-
-[tool.bumpversion:file:YOUR_PACKAGE_NAME/__init__.py]
-
 [tool.mypy]
 strict = true
 show_error_codes = true
