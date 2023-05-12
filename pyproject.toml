@@ -48,7 +48,6 @@ exclude = [
     "build",
     "dist",
     "node_modules",
-    "venv",
-]
+    "venv"]
 
 line-length = 120
