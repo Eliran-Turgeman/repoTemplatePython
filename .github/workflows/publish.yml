@@ -9,7 +9,74 @@ on:
     paths:
       - 'YOUR_PACKAGE_NAME/**'
 jobs:
+  ruff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: chartboost/ruff-action@v1
+
+  mypy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Cache Pipenv dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pipenv-
+
+      - name: Install dependencies
+        run: pipenv install --dev
+
+      - name: Run mypy
+        run: pipenv run mypy .
+        
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install pipenv
+        run: |
+          python -m pip install --no-cache-dir --upgrade pipenv
+
+      - name: Cache Pipenv dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pipenv-
+
+      - name: Install dependencies
+        run: |
+          pipenv --python ${{ matrix.python-version }}
+          pipenv install
+          pipenv install --dev
+          
+      - name: Run unit-tests
+        run: |
+          pipenv run python -m pytest tests/unit
+          
   publish:
+    needs: [ruff, mypy, tests]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
