@@ -2,6 +2,10 @@
 strict = true
 show_error_codes = true
 
+[[tool.mypy.overrides]]
+module = "setuptools"
+ignore_missing_imports = true
+
 [tool.coverage.run]
 parallel = true
 source = [
