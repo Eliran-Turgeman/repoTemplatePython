@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'PY_PACKAGE_NAME/**'
 jobs:
   ruff:
     runs-on: ubuntu-latest
