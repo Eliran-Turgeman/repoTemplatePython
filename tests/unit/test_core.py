@@ -9,4 +9,4 @@ def test_get_message():
   message = get_message()
   
   # Assert
-  assert expected_message = message
+  assert expected_message == message
