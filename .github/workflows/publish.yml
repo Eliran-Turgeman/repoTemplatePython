@@ -100,7 +100,7 @@ jobs:
           
       - name: Bump version and push tag
         run: |
-          git config --local user.email "action@github.com"
+          git config --local user.email "your.email@example.com"
           git config --local user.name "GitHub Action"
           pipenv run bump2version patch --commit --tag
           git push origin --tags
