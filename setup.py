@@ -10,7 +10,7 @@ setup(
     license="MIT License",
     version='0.0.0',
     author='AUTHOR_NAME',
-    author_email='AUTHOR_EMAIL',
+    author_email='AUTHOR_EMAIL@gmail.com',
     description='SHORT_DESCRIPTION',
     long_description=long_description,
     long_description_content_type="text/markdown",
