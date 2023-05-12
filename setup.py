@@ -6,7 +6,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
-    name='YOUR_PACKAGE_NAME',
+    name='PY_PACKAGE_NAME',
     license="MIT License",
     version='0.0.0',
     author='AUTHOR_NAME',
@@ -30,7 +30,7 @@ setup(
     python_requires=">=3.8",
     entry_points={
         "console_scripts": [
-            "YOUR_PACKAGE_NAME=YOUR_PACKAGE_NAME.main:main",
+            "PY_PACKAGE_NAME=PY_PACKAGE_NAME.main:main",
         ]
     },
     classifiers=[
