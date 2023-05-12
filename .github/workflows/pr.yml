@@ -22,6 +22,14 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
 
+      - name: Cache Pipenv dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pipenv-
+
       - name: Install dependencies
         run: pipenv install --dev
 
@@ -38,9 +46,19 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install pipenv
         run: |
           python -m pip install --no-cache-dir --upgrade pipenv
+
+      - name: Cache Pipenv dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pipenv-
+
       - name: Install dependencies
         run: |
           pipenv --python ${{ matrix.python-version }}
