@@ -102,7 +102,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          pipenv run bump2version patch --commit --tag
+          pipenv run bump2version patch --commit --tag --config-file pyproject.toml
           git push origin --tags
           
       - name: Create source distribution
