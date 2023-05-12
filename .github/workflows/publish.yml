@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'YOUR_PACKAGE_NAME/**'
 jobs:
   ruff:
     runs-on: ubuntu-latest
