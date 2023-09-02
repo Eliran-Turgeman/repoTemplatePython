@@ -1,5 +1,5 @@
 def get_message() -> str:
-  return "hello"
+  return "hello2"
 
 def get_message_2() -> str:
   return "bye"
